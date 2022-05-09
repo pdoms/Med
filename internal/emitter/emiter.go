@@ -34,7 +34,7 @@ func ProcessArgs() EmitArgs {
 
 }
 
-func getTestMsg() (msg string, err error) {
+func GetTestMsg() (msg string, err error) {
 	file, err := os.Open("/home/paulo/Projects/Med/internal/emitter/testmsg.txt")
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -64,7 +64,7 @@ func Emit(conf *c.Emitter) {
 	}
 
 	if args.SendSample {
-		msg, err := getTestMsg()
+		msg, err := GetTestMsg()
 		if err != nil {
 			fmt.Println("Error - EMITTER", err)
 		}
