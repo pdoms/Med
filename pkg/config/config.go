@@ -1,6 +1,7 @@
 package config
 
 import (
+	"Med/internal/utils"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -9,6 +10,10 @@ import (
 	"path/filepath"
 	"strings"
 )
+
+var PROTOCOLS = []string{
+	"mllp",
+}
 
 type Config struct {
 	Emitter Emitter `json:"emitter"`
@@ -21,8 +26,9 @@ type Emitter struct {
 }
 
 type Server struct {
-	Host string `json:"host"`
-	Port string `json:"port"`
+	Host     string `json:"host"`
+	Port     string `json:"port"`
+	Protocol string `json:"protocol"`
 }
 
 type Connection struct {
@@ -37,6 +43,7 @@ func CheckEmitter(c *Config) error {
 	if c.Emitter.Protocol == "" {
 		fmt.Println("INFO - EMITTER", "No protocol was provided in config, checking cli flags.")
 	}
+	fmt.Println("STATUS: emitter config check successful")
 	return nil
 
 }
@@ -45,6 +52,14 @@ func CheckServer(c *Config) error {
 	if c.Server.Port == "" || c.Server.Host == "" {
 		log.Fatalln("ERROR - SERVER: server requires port to listen on")
 	}
+	if c.Server.Protocol == "" {
+		c.Server.Protocol = "mllp"
+		fmt.Println("INFO - SERVER: no protocol provided, using 'mllp'")
+	}
+	if !utils.SliceContainsString(PROTOCOLS, c.Server.Protocol) {
+		log.Fatalln("ERROR - SERVER: nunknown protocol")
+	}
+	fmt.Println("STATUS: server config check successful")
 	return nil
 }
 

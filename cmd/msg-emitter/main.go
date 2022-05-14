@@ -2,13 +2,13 @@ package main
 
 import (
 	e "Med/internal/emitter"
-	c "Med/pkg/config"
+	u "Med/internal/utils"
+	"Med/pkg/config"
 )
 
 func main() {
-	var conf c.Config
-	c.LoadConfig(&conf, "emitter", false)
+	var conf config.Config
+	err := config.LoadConfig(&conf, "emitter", false)
+	u.HandleError(err)
 	e.Emit(&conf.Emitter)
-	//fmt.Println(conf.Emitter.Connection.Host)
-
 }

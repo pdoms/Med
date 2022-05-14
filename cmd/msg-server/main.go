@@ -8,5 +8,7 @@ import (
 func main() {
 	var conf c.Config
 	c.LoadConfig(&conf, "server", false)
-	s.ServeAndReport(&conf.Server)
+	if conf.Server.Protocol == "mllp" {
+		s.ServeAndReportMllp(&conf.Server)
+	}
 }

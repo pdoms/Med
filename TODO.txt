@@ -1,7 +1,7 @@
 1. Logging
 2. Log Blockchain/Merkle Tree
 3. Add cli for inputing msg via mllp
-4. Unit Tests for emitter and server
+4. Unit Tests for emitter and server - done 
 5. Integration tests for mllp msg transmission
 
 FURTHER STEPS:
