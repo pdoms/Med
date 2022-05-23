@@ -87,9 +87,10 @@ func runAsRepl(emit *UseEmitter, conf *config.Emitter) {
 		response, err := responseReader.ReadString('\n')
 		u.HandleError(err)
 		if strings.TrimSpace(response) == "OK" {
-			fmt.Println("Message emitted.")
+			fmt.Println("Message successfully sent.")
 			fmt.Println()
 		} else {
+			fmt.Println(response)
 			log.Fatal("ERROR:", err)
 		}
 	}

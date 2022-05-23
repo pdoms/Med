@@ -1,0 +1,22 @@
+MSH - DATA TYPES:
+
+ST - string less than 200 chars 
+	EXTENDED BY: IS, ID
+HD - Hierarchic Designator - has subs
+TS - Timestamp - has subs 
+
+MSG - Message type - has subs -
+
+PT - > has subs 
+VID - > has subs
+NM -> numeric as string
+
+CE -> has subs
+EI -> has subs
+
+
+DTM  -> datetimestamp
+
+
+
+

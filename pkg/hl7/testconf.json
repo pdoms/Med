@@ -1,0 +1,82 @@
+{
+    "ADT": {
+        "MSH": {
+            "FieldSeparator": "MSH.1",
+            "EncodingCharacters": "MSH.2",
+            "SendingApplication": "MSH.3",
+            "SendingFacility": "MSH.4",
+            "RecievingApplication": "MSH.5",
+            "ReceivingFacility": "MSH.6",
+            "DateTimeOfMessage": "MSH.7",
+            "Security": "MSH.8",
+            "MessageType": "MSH.9",
+            "MessageControlId": "MSH.10",
+            "ProcesingId": "MSH.11",
+            "VersionIdentifier": "MSH.12",
+            "SequenceNumber": "MSH.13",
+            "ContinuationPointer": "MSH.14",
+            "AcceptAcknowledgeType": "MSH.15",
+            "ApplicationAcknowledgmentType": "MSH.16",
+            "CountryCode": "MSH.17",
+            "CharacterSet": "MSH.18",
+            "PrincipalLanguageOfMessage": "MSH.19",
+            "AlternateCharacterSetHandlingScheme": "MSH.20",
+            "MessageProfileIdentifier": "MSH.21",
+            "SubFields": {
+                "MessageType": {
+                    "MessageCode": "MSH.9.1",
+                    "TriggerEvent": "MSH.9.2",
+                    "MessageStructure": "MSH.9.3"
+                },
+                "ProcessingId": {
+                    "ProcessingId": "MSH.11.1",
+                    "ProcessingMode": "MSH.11.2"
+                },
+                "VersionIdentifier": {
+                    "VersionId": "MSH.12.1",
+                    "InternationalizationCode": "MSH.12.2",
+                    "InternalizationVersionId": "MSH.12.3"
+                },
+                "PrincipalLanguageOfMessage": {
+                    "Identifer": "MSH.19.1",
+                    "Text": "MSH.19.2",
+                    "NameOfCodingSystem": "MSH.19.3",
+                    "AlternateIdentifer": "MSH.19.4",
+                    "AlternateText": "MSH.19.5",
+                    "NameOfAlternateCodingSystem": "MSH.19.6"
+                },
+                "MessageProfileIdentifier": {
+                    "EntityIdentifier": "MSH.21.1",
+                    "NameSpaceId": "MSH.21.2",
+                    "UniversalId": "MSH.21.3",
+                    "UniversalIdType": "MSH.21.4"
+                }
+            }
+        },
+        "SFT": {},
+        "EVN": {},
+        "PID": {},
+        "PD1": {},
+        "RO1": {},
+        "NK1": {},
+        "PV1": {},
+        "PV2": {},
+        "RO2": {},
+        "DB1": {},
+        "OBX": {},
+        "Al1": {},
+        "DG1": {},
+        "DRG": {},
+        "PR1": {},
+        "RO3": {},
+        "GT1": {},
+        "IN1": {},
+        "IN2": {},
+        "IN3": {},
+        "RO4": {},
+        "ACC": {},
+        "UB1": {},
+        "UB2": {},
+        "PDA": {}
+    }
+}

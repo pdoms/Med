@@ -1,49 +1,58 @@
 package hl7
 
 import (
-	"Med/internal/protocols/mllp"
+	"bytes"
 	"fmt"
-	"io"
+	"log"
 )
 
-const (
-	BUFFERSIZE = 24
-)
-
-type Scanner struct {
-	r io.Reader
-	//segments []byte
-	Msg []byte
-	//	done     bool
+type Hl7MESSAGE struct {
+	Config ProcessorConfig
+	Raw    []byte
+	MSH    []byte
+	Type   string
+	Delims *Delimeters
 }
 
-func NewMllpScanner(r io.Reader) *Scanner {
-	return &Scanner{
-		r:   r,
-		Msg: make([]byte, BUFFERSIZE),
+func (msg *Hl7MESSAGE) UnmarshalHl7(raw []byte) {
+	msg.Raw = raw
+	msg.Delims = NewDelimiters()
+	temp := bytes.Split(msg.Raw, msg.Delims.Segment)
+	msg.parseMSH(temp[0])
+
+}
+
+func (msg *Hl7MESSAGE) DetermineMessageType() {
+	types := NewMessageTypesCollecion()
+	for _, msgType := range types {
+		if bytes.Contains(msg.MSH, []byte(msgType)) {
+			msg.Type = msgType
+			return
+		}
+	}
+
+}
+
+func isMHS(first []byte) bool {
+	return bytes.Equal(first[:3], NewSegmentIds().MSH)
+}
+
+func (msg *Hl7MESSAGE) parseMSH(first []byte) {
+	//watch out: if not first where then?
+	if isMHS(first) {
+		msg.MSH = first
+		msg.DetermineMessageType()
+		fmt.Println(msg.Type)
+		replace := make([]byte, 4)
+		//replace escape characters
+		copy(msg.MSH[4:], replace[:])
+		fields := bytes.Split(msg.MSH, msg.Delims.Field)
+		fmt.Println(fields[0])
 	}
 }
 
-func (s *Scanner) Scan() error {
-	buf := make([]byte, 12)
-
-	for {
-		len, err := s.r.Read(buf)
-		if err != nil {
-			fmt.Println("ERROR - server: ", err)
-			return err
-		}
-		for _, b := range buf[:len] {
-			if b == mllp.SOB {
-				continue
-			}
-			if b == mllp.EOB {
-				return nil
-			} else {
-				s.Msg = append(s.Msg, b)
-			}
-		}
-
+func HandleError(err error) {
+	if err != nil {
+		log.Fatalln(err)
 	}
-
 }

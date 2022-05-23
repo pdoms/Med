@@ -35,7 +35,7 @@ func handleMllpRequest(conn net.Conn) {
 	scanner := hl7.NewMllpScanner(conn)
 	err := scanner.Scan()
 	if err != nil {
-		//write response
+		conn.Write([]byte("ERROR\n"))
 		return
 	}
 	//logic to do something with the message
@@ -43,13 +43,5 @@ func handleMllpRequest(conn net.Conn) {
 	fmt.Println(string(scanner.Msg))
 	conn.Write([]byte("OK\n"))
 	fmt.Println("INFO - SERVER: handled request - ready for more")
-	//buf := make([]byte, 12)
-	//for {
-	//	len, err := conn.Read(buf)
-	//	if err != nil {
-	//		fmt.Println("ERROR - SERVER: ", err)
-	//	}
-	//	fmt.Println(buf[:len])
-	//}
 
 }
