@@ -1,14 +1,16 @@
 package hl7
 
 type Delimeters struct {
-	Field   []byte
-	Segment []byte
+	Field     []byte
+	Segment   []byte
+	MshOffset int
 }
 
 func NewDelimiters() *Delimeters {
 	return &Delimeters{
-		Field:   []byte{124},
-		Segment: []byte{10},
+		Field:     []byte{124},
+		Segment:   []byte{10},
+		MshOffset: 5,
 	}
 }
 
