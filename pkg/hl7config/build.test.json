@@ -1,0 +1,22 @@
+{
+    "ADT": {
+        "MSH": {
+            "FieldSeparator": "MSH.1",
+            "EncodingCharacters": "MSH.2",      
+            "SendingApplication": "MSH.3",
+            "SendingFacility": "MSH.4",
+            "ReceivingApplication": "MSH.5",
+            "ReceivingFacility": "MSH.6",
+            "DateTimeOfMessage": "MSH.7",
+            "Security": "MSH.8",
+            "MessageType": {
+                "MessageCode": "MSH.9.1",
+                "TriggerEvent": "MSH.9.2",
+                "MessageStructure": "MSH.9.3"
+            },
+            "MessageControlId": "MSH.10",
+            "ProcessingId": "MSH.11",
+            "VersionIdentifier": "MSH.12"
+        }
+    }
+}

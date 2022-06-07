@@ -1,0 +1,27 @@
+{
+  "ADT": {  
+      "MSH": {
+        "FieldSeparator": "MSH.1",
+        "EncodingCharacters": "MSH.2",
+        "SendingApplication": "MSH.3",
+        "SendingFacility": "MSH.4",
+        "RecievingApplication": "MSH.5",
+        "ReceivingFacility": "MSH.6",
+        "DateTimeOfMessage": "MSH.7",
+        "Security": "MSH.8",
+        "MessageType": "MSH.9",
+        "MessageControlId": "MSH.10",
+        "ProcessingId": "MSH.11",
+        "VersionIdentifier": "MSH.12",
+        "SequenceNumber": "MSH.13",
+        "ContinuationPointer": "MSH.14",
+        "AcceptAcknowledgeType": "MSH.15",
+        "ApplicationAcknowledgmentType": "MSH.16",
+        "CountryCode": "MSH.17",
+        "CharacterSet": "MSH.18",
+        "PrincipalLanguageOfMessage": "MSH.19",
+        "AlternateCharacterSetHandlingScheme": "MSH.20",
+        "MessageProfileIdentifier": "MSH.21"
+        }
+    }
+}

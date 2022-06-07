@@ -1,0 +1,10 @@
+{
+    "ADT": {
+        "MSH": {
+            "FieldSeparator": "MSH.1",
+            "Test": {
+                "FirstName": "MSH.2.1"
+            }
+        }
+    }
+}

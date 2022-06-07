@@ -11,7 +11,7 @@
             "Security": "MSH.8",
             "MessageType": "MSH.9",
             "MessageControlId": "MSH.10",
-            "ProcesingId": "MSH.11",
+            "ProcessingId": "MSH.11",
             "VersionIdentifier": "MSH.12",
             "SequenceNumber": "MSH.13",
             "ContinuationPointer": "MSH.14",
